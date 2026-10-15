@@ -1,0 +1,44 @@
+cleanup_ignore_labels:
+  name: Cleanup 'ignore-until' labels
+  description: Removes all labels starting with ignore-until-YYYY_MM_DD that are older than the specified date or malformed.
+  fields:
+    before:
+      required: false
+      description: Date threshold for label removal. Removes labels older than this date (defaults to current date).
+      example: "2026-10-15"
+      selector:
+        date:
+
+delete_label:
+  name: Delete label
+  description: Removes a specific label from the Home Assistant label registry by name or ID.
+  fields:
+    name:
+      required: true
+      description: Name or ID of the label to delete.
+      example: "ignore-until-2026_10_15"
+      selector:
+        label:
+
+set_state:
+  name: Set state
+  description: Sets or overrides the state and attributes of any entity directly in the Home Assistant state machine.
+  fields:
+    entity_id:
+      required: true
+      description: Entity ID whose state and attributes will be modified.
+      example: "sensor.example_sensor"
+      selector:
+        entity:
+    state:
+      required: false
+      description: New state value. If omitted, the entity's current state is retained.
+      example: "on"
+      selector:
+        text:
+    attributes:
+      required: false
+      description: Map of entity attributes to set or update.
+      example: '{"friendly_name": "Example Sensor", "battery": 95}'
+      selector:
+        object:

@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Custom Toolbox",
+        "description": "Do you want to set up Custom Toolbox?"
+      }
+    },
+    "abort": {
+      "already_configured": "Custom Toolbox is already configured."
+    }
+  }
+}
